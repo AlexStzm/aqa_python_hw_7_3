@@ -1,16 +1,8 @@
-import pytest
 from selene.support.shared import browser
 from selene import have
 
-@pytest.fixture(scope="function", autouse=True)
-def size_browser():
-    browser.config.window_width = 1680
-    browser.config.window_height = 1050
-    yield
-    browser.quit()
-
-def test_authorization():
-    browser.open('https://chocodiamond.ru/client_account/contacts/new')
+def test_registration(size_browser):
+    browser.open('/client_account/contacts/new')
 
     browser.element('#client_contact_name').type('TestUser2').press_tab()
     browser.element('#client_phone').type('79999999999').press_tab()
