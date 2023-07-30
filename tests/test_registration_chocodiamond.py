@@ -1,7 +1,7 @@
 from selene.support.shared import browser
 from selene import have
 
-def test_registration(base_url_browser):
+def test_registration(browser_manager):
     browser.open('/client_account/contacts/new')
 
     browser.element('#client_contact_name').type('TestUser2').press_tab()
